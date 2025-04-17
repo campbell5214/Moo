@@ -1,88 +1,175 @@
-/* css for yes,no,maybe */
-body{
-    font-family: sans-serif;
+/* === Alien Cow Theme === */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap');
+
+body {
+    font-family: 'Orbitron', sans-serif;
     justify-content: center;
     align-items: center;
-    display: block;
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
     margin: 0;
-    background-color: #f0f0f0;
+    background: radial-gradient(circle at center, #1d1f33, #0b0c10);
+    color: #e6ffe6;
 }
-.container{
+
+.container {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: white;
+    background: white url('https://www.transparenttextures.com/patterns/cowhide.png');
     padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    box-shadow: 0 0 20px limegreen;
+    border: 3px dashed limegreen;
+    max-width: 800px;
+    margin: 30px;
 }
 
-.title{
+/* Title Area */
+.title {
     padding: 15px 30px;
     margin: 20px 0;
-    background-color: lightgrey;
-    border-radius: 8px;
+    background-color: #b3ffb3;
+    border-radius: 12px;
+    box-shadow: 0 0 10px limegreen;
 }
 
-.title h1{
+.title h1 {
     margin: 0;
-    font-size: 24px;
+    font-size: 28px;
     text-align: center;
+    color: #2e2e2e;
 }
 
-.images{
+/* Image Display */
+.images {
     display: flex;
-    gap: 200px;
+    gap: 100px;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-.images img{
+.images img {
     max-width: 150px;
     height: auto;
     border-radius: 8px;
-    
+    border: 3px solid limegreen;
 }
 
-.continue{
-    padding: 10px 20px;
-    background-color: lightgrey;
+/* Continue Button */
+.continue {
+    padding: 12px 24px;
+    background-color: limegreen;
     color: black;
     border: none;
-    border-radius: 8px;
+    border-radius: 50px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
+    font-size: 18px;
+    transition: transform 0.3s, background-color 0.3s;
 }
-.continue:hover{
-    background-color: #d0d0d0;
+.continue:hover {
+    background-color: #00cc66;
+    transform: scale(1.05);
 }
+
+/* Option Blocks */
+.option {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    cursor: pointer;
+}
+.radio-button {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+    background-color: #d0ffd0;
+    border: 2px solid #00cc66;
+}
+.option input[type="radio"]:checked + .radio-button::after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 10px;
+    height: 10px;
+    background-color: green;
+    border-radius: 50%;
+}
+.option-label {
+    padding: 8px 20px;
+    border-radius: 15px;
+    background-color: #d0ffd0;
+    transition: background-color 0.2s;
+    width: 160px;
+    text-align: center;
+}
+.option:hover .option-label {
+    background-color: #aaffaa;
+}
+
+/* Indicator Styles */
 .indicator {
     position: absolute;
     font-size: 100px;
     font-weight: bold;
 }
-
-.checkmark {
-    color: #28a745;
-}
-
 .checkmark::before {
     content: "✓";
+    color: limegreen;
 }
-.x-mark {
-    color: #dc3545;
-}
-
 .x-mark::before {
     content: "✗";
+    color: red;
 }
-.question-mark {
-    color: #ffc107;
-}
-
 .question-mark::before {
     content: "?";
+    color: yellow;
 }
 
+/* Measurement Inputs */
+input[type="number"] {
+    padding: 10px;
+    border: 2px solid #00cc66;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 120px;
+    background-color: #f9fff9;
+    text-align: center;
+}
+
+.unit {
+    position: absolute;
+    bottom: 18px;
+    right: 20px;
+    font-size: 16px;
+    color: #2e2e2e;
+}
+
+/* Button Group */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.y-n-button {
+    padding: 10px 20px;
+    background-color: #d0ffd0;
+    border: 2px solid #00cc66;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+.y-n-button:hover {
+    background-color: #aaffaa;
+    transform: scale(1.1);
+}
+.y-n-button.selected {
+    background-color: #00cc66;
+    color: white;
+    font-weight: bold;
+}
