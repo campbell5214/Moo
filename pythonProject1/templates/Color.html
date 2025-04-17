@@ -8,24 +8,25 @@
 <body>
     <div class="container">
         <h1>Enter the Color of the Animal</h1>
-        <form action="{{ url_for('color') }}" method="POST">
-            <label for="color">Color:</label>
-            <select name="color">
-                <option value="brown">Brown</option>
-                <option value="black">Black</option>
-                <option value="white">White</option>
-                <option value="spotted">Spotted</option>
-            </select><br>
+<form method="POST" action="/color">
+    <label for="color">Color:</label>
+    <select name="color" required>
+        <option value="">-- Select Color --</option>
+        <option value="brown">Brown</option>
+        <option value="white">White</option>
+        <option value="black">Black</option>
+        <option value="spotted">Spotted</option>
+    </select>
 
-            <!-- Pass the size and sound data to the next page -->
+    <!-- Hidden fields to carry forward -->
     <input type="hidden" name="length" value="{{ length }}">
     <input type="hidden" name="width" value="{{ width }}">
-    <input type="hidden" name="sound" value="{{ sound }}">
-    <input type="hidden" name="weight_kg" value="{{ weight_kg }}">
     <input type="hidden" name="weight_lbs" value="{{ weight_lbs }}">
+    <input type="hidden" name="sound" value="{{ sound }}">
 
-            <button type="submit">Make Decision</button>
-        </form>
+    <button type="submit">Next</button>
+</form>
+
     </div>
 </body>
 </html>

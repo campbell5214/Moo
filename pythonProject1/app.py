@@ -42,35 +42,43 @@ def color():
     if request.method == 'POST':
         color = request.form.get('color')
         sound = request.form.get('sound')
-        length = float(request.form.get('length'))
-        width = float(request.form.get('width'))
-        weight_lbs = float(request.form.get('weight_lbs'))
+        length = request.form.get('length')
+        width = request.form.get('width')
+        weight_lbs = request.form.get('weight_lbs')
 
-        # Redirect to the udders page to ask about udders
-        return render_template('Udders.html', length=length, width=width, weight_lbs=weight_lbs, sound=sound, color=color)
+        return render_template('Udders.html', sound=sound, color=color, length=length, width=width, weight_lbs=weight_lbs)
 
-    return render_template('Color.html')
+    # If GET, render with values from previous step
+    length = request.args.get('length')
+    width = request.args.get('width')
+    weight_lbs = request.args.get('weight_lbs')
+    sound = request.args.get('sound')
+
+    return render_template('Color.html', length=length, width=width, weight_lbs=weight_lbs, sound=sound)
+
 
 
 @app.route('/udders', methods=['GET', 'POST'])
 def udders():
     if request.method == 'POST':
-        udders = request.form.get('udders')
+        gender = request.form.get('gender')
         length = float(request.form.get('length'))
         width = float(request.form.get('width'))
         weight_lbs = float(request.form.get('weight_lbs'))
         sound = request.form.get('sound')
         color = request.form.get('color')
 
-        # Cow classification logic
-        if length > 6.5 and width > 5.0 and weight_lbs > 880 and sound == "moo" and color == "brown" and udders == "yes":
-            return render_template('Yes.html', length=length, width=width, weight=weight_lbs, sound=sound, color=color, udders=udders)
+        # Insert your joke logic here if you want :)
+        if length > 6.5 and width > 5.0 and weight_lbs > 880 and sound == "moo" and color == "brown":
+            return render_template('Yes.html', length=length, width=width, weight=weight_lbs, sound=sound, color=color, gender=gender)
         elif length < 3.3 or width < 2.6 or weight_lbs < 220:
-            return render_template('No.html', length=length, width=width, weight=weight_lbs, sound=sound, color=color, udders=udders)
+            return render_template('No.html', length=length, width=width, weight=weight_lbs, sound=sound, color=color, gender=gender)
         else:
-            return render_template('Maybe.html', length=length, width=width, weight=weight_lbs, sound=sound, color=color, udders=udders)
+            return render_template('Maybe.html', length=length, width=width, weight=weight_lbs, sound=sound, color=color, gender=gender)
 
     return render_template('Udders.html')
+
+
 
 
 @app.route('/yes')
