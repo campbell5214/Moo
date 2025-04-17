@@ -9,7 +9,9 @@ body {
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
-    background: radial-gradient(circle at center, #1d1f33, #0b0c10);
+    background: url('stars.jpg') no-repeat center top fixed;
+    background-size: cover; /* Still keeps it covering the screen */
+    background-position: center; /* Adjust if needed */
     color: #e6ffe6;
 }
 
