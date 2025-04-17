@@ -1,0 +1,67 @@
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Is It A Cow?</title>
+        <link rel="stylesheet" href="../static/styles/style.css">
+    </head>
+    <body>
+        <div class = "container">
+            <div class = "title">
+                <h1>
+                    Is It A Cow?
+                </h1>
+            </div>
+            <div class="flash-msg">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="{{ category }}">{{ message }}</div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Size</th>
+                        <th>Weight</th>
+                        <th>Sound</th>
+                        <th>Color</th>
+                        <th>Gender</th>
+                        <th>Cow?</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for inquiry in inquiries %}
+                    <tr>
+                        <td>{{ inquiry.id }}</td>
+                        <td>{{ inquiry.size }}</td>
+                        <td>{{ inquiry.weight_lbs }} lbs<</td>
+                        <td>{{ inquiry.sound }}</td>
+                        <td>{{ inquiry.color }}</td>
+                        <td>{{ inquiry.gender }}</td>
+                        <td class="{{ inquiry.is_cow }}">{{ inquiry.is_cow.upper() }}</td>
+                        <td>{{ inquiry.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                    </tr>
+                    {% endfor %}    
+                    {% if not inquiries %}
+                    <tr>
+                        <td colspan="8" style="text-align: center;">No inquiries found.</td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+            <div class = "images">
+                <img src="../static/src/leftcow.jpeg" alt="leftcow" class="leftcow">
+                <img src="../static/src/rightcow.jpeg" alt="rightcow" class="rightcow">
+            </div>
+            <button class='continue' onclick="window.location.href='/landing'">Back</button>
+        </div>
+    </body>
+</html>
