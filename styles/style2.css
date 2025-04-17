@@ -111,9 +111,7 @@ body{
     text-align: center;
     transition: background-color 0.2s;
 }
-
-/* css for sound */
-.sound-header{
+.header{
     background-color: lightgrey;
     padding: 8px 15px;
     border-radius: 15px;
@@ -122,6 +120,59 @@ body{
     font-weight: bold;
     font-size: 14px;
 }
-.sound-container{
-    
+.button-container{
+    margin: 20px 0;
+    text-align: center;
+}
+
+/* css for necessary udder components */
+.udder{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    height: 200px;
+}
+.arrow{
+    position: absolute;
+    top: 140px;
+    left: 60px;
+    width: 120px;
+    height: 2px;
+    background-color: #333;
+    transform: rotate(15deg);
+}
+.arrow::after{
+    content: "";
+    position: absolute;
+    right: -1px;
+    top: -5px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid #333;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+
+}
+/*css for y n buttons */
+.button-group{
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.y-n-button{
+    padding: 10px 20px;
+    background-color: lightgrey;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.2s;
+}
+.y-n-button:hover{
+    background-color: #c9c9c9;
+    transform: scale(1.05);
+}
+.y-n-button.selected{
+    background-color: #a0a0a0;
+    font-weight: bold;
 }

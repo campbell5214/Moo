@@ -1,0 +1,88 @@
+/* css for yes,no,maybe */
+body{
+    font-family: sans-serif;
+    justify-content: center;
+    align-items: center;
+    display: block;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.title{
+    padding: 15px 30px;
+    margin: 20px 0;
+    background-color: lightgrey;
+    border-radius: 8px;
+}
+
+.title h1{
+    margin: 0;
+    font-size: 24px;
+    text-align: center;
+}
+
+.images{
+    display: flex;
+    gap: 200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.images img{
+    max-width: 150px;
+    height: auto;
+    border-radius: 8px;
+    
+}
+
+.continue{
+    padding: 10px 20px;
+    background-color: lightgrey;
+    color: black;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+.continue:hover{
+    background-color: #d0d0d0;
+}
+.indicator {
+    position: absolute;
+    font-size: 100px;
+    font-weight: bold;
+}
+
+.checkmark {
+    color: #28a745;
+}
+
+.checkmark::before {
+    content: "✓";
+}
+.x-mark {
+    color: #dc3545;
+}
+
+.x-mark::before {
+    content: "✗";
+}
+.question-mark {
+    color: #ffc107;
+}
+
+.question-mark::before {
+    content: "?";
+}
+
