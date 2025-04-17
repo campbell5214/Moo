@@ -1,0 +1,25 @@
+<!-- Udders.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Does it have udders?</title>
+</head>
+<body>
+    <h1>Does it have udders?</h1>
+    <form action="{{ url_for('udders') }}" method="POST">
+        <label for="udders">Does it have udders?</label><br>
+        <input type="radio" id="yes" name="udders" value="yes" required> Yes<br>
+        <input type="radio" id="no" name="udders" value="no"> No<br><br>
+
+        <input type="hidden" name="length" value="{{ length }}">
+        <input type="hidden" name="width" value="{{ width }}">
+        <input type="hidden" name="weight_lbs" value="{{ weight_lbs }}">
+        <input type="hidden" name="sound" value="{{ sound }}">
+        <input type="hidden" name="color" value="{{ color }}">
+
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
