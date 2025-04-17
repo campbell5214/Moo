@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Is It A Cow?</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Enter the Size of the Animal</h1>
+        <form action="{{ url_for('size') }}" method="POST">
+            <label for="length">Length (in meters):</label>
+            <input type="number" name="length" step="0.1" required><br>
+
+            <label for="width">Width (in meters):</label>
+            <input type="number" name="width" step="0.1" required><br>
+
+            <label for="weight">Weight (in pounds):</label>
+            <input type="number" name="weight" required><br>
+
+            <button type="submit">Next</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Is It A Cow?</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Enter the Color of the Animal</h1>
+        <form action="{{ url_for('color') }}" method="POST">
+            <label for="color">Color:</label>
+            <select name="color">
+                <option value="brown">Brown</option>
+                <option value="black">Black</option>
+                <option value="white">White</option>
+                <option value="spotted">Spotted</option>
+            </select><br>
+
+            <!-- Pass the size and sound data to the next page -->
+    <input type="hidden" name="length" value="{{ length }}">
+    <input type="hidden" name="width" value="{{ width }}">
+    <input type="hidden" name="sound" value="{{ sound }}">
+    <input type="hidden" name="weight_kg" value="{{ weight_kg }}">
+    <input type="hidden" name="weight_lbs" value="{{ weight_lbs }}">
+
+            <button type="submit">Make Decision</button>
+        </form>
+    </div>
+</body>
+</html>
