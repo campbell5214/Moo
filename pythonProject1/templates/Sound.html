@@ -1,6 +1,5 @@
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,17 +12,19 @@
         <h1>Enter the Sound the Animal Makes</h1>
         <form action="{{ url_for('sound') }}" method="POST">
             <label for="sound">Sound:</label>
-            <select name="sound">
+            <select name="sound" required>
+                <option value="" disabled selected>Select Sound</option>
                 <option value="moo">Moo</option>
                 <option value="baa">Baa</option>
                 <option value="growl">Growl</option>
+                <option value="HELP!!!">HELP!!!</option>  <!-- New option added here -->
             </select><br>
 
             <!-- Pass the size data to the next page -->
-    <input type="hidden" name="length" value="{{ length }}">
-    <input type="hidden" name="width" value="{{ width }}">
-    <input type="hidden" name="sound" value="{{ sound }}">
-    <input type="hidden" name="weight_lbs" value="{{ weight_lbs }}">
+            <input type="hidden" name="length" value="{{ length }}">
+            <input type="hidden" name="width" value="{{ width }}">
+            <input type="hidden" name="sound" value="{{ sound }}">
+            <input type="hidden" name="weight_lbs" value="{{ weight_lbs }}">
 
             <button type="submit">Next</button>
         </form>

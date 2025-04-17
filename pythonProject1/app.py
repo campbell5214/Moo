@@ -2,12 +2,14 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 import os
 from datetime import datetime
+import random
+from flask import render_template
 
 
 app = Flask(__name__)
 
 basedir = os.path.abspath(os.path.dirname(__file__))
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:student@localhost:5432/cow_inquiries'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:test@localhost:5432/cow_inquiries'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'secretkey'
 
@@ -106,7 +108,8 @@ def udders():
             #return render_template('Maybe.html', length=length, width=width, weight=weight_lbs, sound=sound, color=color, gender=gender)
 
         is_cow = None
-        if length > 6.5 and width > 5.0 and weight_lbs > 880 and sound == "moo" and color == "brown":
+        if length > 6.5 and width > 5.0 and weight_lbs > 880 and sound == "moo" and (
+                color == "brown" or color == "spotted"):
             is_cow = 'yes'
             template = 'Yes.html'
         elif length < 3.3 or width < 2.6 or weight_lbs < 220:
@@ -160,6 +163,12 @@ def inquiries():
     # Fetch all inquiries from the database
     inquiries = CowInquiry.query.order_by(CowInquiry.created_at.desc()).all()
     return render_template('Inquiries.html', inquiries=inquiries)
+
+
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
 
 
 if __name__ == '__main__':

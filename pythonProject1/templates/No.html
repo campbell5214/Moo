@@ -11,6 +11,16 @@
             <h1>It's Not a Cow!</h1>
         </div>
 
+        <!-- Add Image2 right below the title -->
+        <div class="image2">
+            <img src="{{ url_for('static', filename='src/image3.png') }}" alt="Image2" class="image2">
+        </div>
+
+        <!-- Mike Wazowski Reference -->
+        <p style="font-size: 1.2em; font-style: italic; text-align: center; margin-bottom: 20px;">
+            "Put that thing back where it came from or so help me!" – <em>Mike Wazowski</em>
+        </p>
+
         <div>
             <p><strong>Length:</strong> {{ length }} m</p>
             <p><strong>Width:</strong> {{ width }} m</p>

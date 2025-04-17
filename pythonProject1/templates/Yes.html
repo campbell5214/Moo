@@ -11,6 +11,11 @@
             <h1>It's a Cow!</h1>
         </div>
 
+        <!-- Adding image44 under the title with larger size and centered -->
+        <div class="images">
+            <img src="{{ url_for('static', filename='src/image44.png') }}" alt="image44" class="image44" style="width: 60%; max-width: 800px; display: block; margin: 0 auto;">
+        </div>
+
         <div>
             <p><strong>Length:</strong> {{ length }} m</p>
             <p><strong>Width:</strong> {{ width }} m</p>
